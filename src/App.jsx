@@ -10,6 +10,8 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness';
 import Box from '@mui/material/Box';
+import { Container } from '@mui/material';
+
 function ModeSelect() {
   const { mode, setMode } = useColorScheme();
 
@@ -43,7 +45,7 @@ function ModeSelect() {
           </Box>
         </MenuItem>
         <MenuItem value='system'>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <SettingsBrightnessIcon />
             System
           </Box>
@@ -52,24 +54,46 @@ function ModeSelect() {
     </FormControl>
   );
 }
-function ModeToggle() {
-  const { mode, setMode } = useColorScheme();
 
-  return (
-    <Button
-      onClick={() => {
-        setMode(mode === 'light' ? 'dark' : 'light');
-      }}
-    >
-      {mode === 'light' ? 'Turn dark' : 'Turn light'}
-    </Button>
-  );
-}
 function App() {
   return (
     <>
-      <ModeSelect />
-      <ModeToggle />
+      <Container disableGutters maxWidth={false} sx={{ height: '100vh' }}>
+        <Box
+          sx={{
+            backgroundColor: 'primary.light',
+            width: '100%',
+            height: (theme) => theme.trello.boardBarHeight,
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          <ModeSelect />
+        </Box>
+        <Box
+          sx={{
+            backgroundColor: 'primary.dark',
+            width: '100%',
+            height: (theme) =>
+              `calc(100vh - ${theme.trello.appBarHeight} -${theme.trello.boardBarHeight})`,
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          Board bar
+        </Box>
+        <Box
+          sx={{
+            backgroundColor: 'primary.main',
+            width: '100%',
+            height: 'calc(100vh - 58px - 88px)',
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          boader content
+        </Box>
+      </Container>
     </>
   );
 }
