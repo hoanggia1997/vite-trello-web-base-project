@@ -35,11 +35,11 @@ const theme = extendTheme({
             height: '8px',
           },
           '*::-webkit-scrollbar-thumb': {
-            backgroundColor: '#bdc3c7',
+            backgroundColor: '#dcdde1',
             borderRadius: '8px',
           },
           '*::-webkit-scrollbar-thumb:hover': {
-            backgroundColor: '#00b894',
+            backgroundColor: 'white',
             borderRadius: '8px',
           },
         },
@@ -62,7 +62,6 @@ const theme = extendTheme({
         // Name of the slot
         root: ({ theme }) => {
           return {
-            color: theme.palette.primary.main,
             fontSize: '0.875rem',
           };
         },
@@ -72,17 +71,23 @@ const theme = extendTheme({
       styleOverrides: {
         root: ({ theme }) => {
           return {
-            color: theme.palette.primary.main,
+            // color: theme.palette.primary.main,
             fontsize: '0.875rem',
-            '.MuiOutlinedInput-notchedOutline': {
-              borderColor: theme.palette.primary.light,
-            },
-            '&:hover': {
-              '.MuiOutlinedInput-notchedOutline': {
-                borderColor: theme.palette.primary.main,
-              },
-            },
+            // '.MuiOutlinedInput-notchedOutline': {
+            //   borderColor: theme.palette.primary.light,
+            // },
+            // '&:hover': {
+            //   '.MuiOutlinedInput-notchedOutline': {
+            //     borderColor: theme.palette.primary.main,
+            //   },
+            // },
             '& fieldset': {
+              borderWidth: '0.5px !importan',
+            },
+            '&:hover fieldset': {
+              borderWidth: '1px !importan',
+            },
+            '&.Mui-focused fieldset': {
               borderWidth: '1px !importan',
             },
           };
